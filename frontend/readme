@@ -1,0 +1,37 @@
+src/
+├── assets/                  # Wallpapers, app icons, and system sounds
+│   ├── wallpapers/
+│   └── icons/
+├── components/              # Core OS interface elements
+│   ├── desktop/
+│   │   ├── Desktop.jsx      # Holds shortcut icons and background
+│   │   └── Shortcut.jsx     # Individual desktop icon grid item
+│   ├── taskbar/
+│   │   ├── Taskbar.jsx      # Main bottom bar container
+│   │   ├── SystemTray.jsx   # Clock, battery, Wi-Fi section
+│   │   └── StartButton.jsx  # Handles opening the Start Menu
+│   ├── start-menu/
+│   │   ├── StartMenu.jsx    # Floating start menu panel
+│   │   ├── PinnedApps.jsx   # Grid of pinned app shortcuts
+│   │   └── ProfileBar.jsx   # Bottom user profile / power button row
+│   └── window/
+│       ├── WindowFrame.jsx  # Generic wrapper with Minimize, Maximize, Close
+│       └── TitleBar.jsx     # Top handle bar used for dragging
+├── apps/                    # Individual internal applications
+│   ├── notepad/
+│   │   └── Notepad.jsx
+│   ├── calculator/
+│   │   └── Calculator.jsx
+│   ├── edge/
+│   │   └── EdgeBrowser.jsx  # Contains the <iframe> setup
+│   └── file-explorer/
+│       └── FileExplorer.jsx
+├── context/                 # Global state management
+│   └── OSContext.jsx        # Manages open apps, active window z-index, and theme
+├── hooks/                   # Custom reusable utility hooks
+│   ├── useDraggable.js      # Custom hook if not using npm react-draggable
+│   └── useWindowSize.js     # Window dimensions helper
+├── styles/                  # Tailwind configurations or global CSS
+│   └── index.css            # Custom blur/acrylic design utilities
+├── App.jsx                  # Main entry point mounting Desktop and Taskbar
+└── main.jsx

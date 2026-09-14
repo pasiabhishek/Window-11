@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+}
+*,
+*::before,
+*::after {
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+:root {
+  --win-font: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  
+  /* System Layer Settings */
+  --z-desktop: 10;
+  --z-window: 100;
+  --z-taskbar: 1000;
+  --z-start-menu: 1001;
+
+  /* Accent Branding Color */
+  --win-accent: #0078d4;
+
+  /* Light Mode Color Palette Tokens */
+  --win-bg-acrylic: rgb(3, 15, 72);
+  --win-border: rgba(0, 0, 0, 0.08);
+  --win-text: #202020;
+  --win-taskbar: rgba(243, 243, 243, 0.80);
+  --win-shadow: rgba(0, 0, 0, 0.15);
+  --win-hover: rgba(0, 0, 0, 0.04);
+}
+
+/* Explicit Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Color Palette Tokens */
+    --win-bg-acrylic: rgb(17, 3, 54);
+    --win-border: rgba(255, 255, 255, 0.08);
+    --win-text: #ffffff;
+    --win-taskbar: rgba(32, 32, 32, 0.85);
+    --win-shadow: rgba(0, 0, 0, 0.40);
+    --win-hover: rgba(255, 255, 255, 0.06);
+  }
+}
