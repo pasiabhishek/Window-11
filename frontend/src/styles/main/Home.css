@@ -1,6 +1,8 @@
 .home-page {
-    width: 100dvw;
+    width: 100%;
+    min-width: 0;
     height: 100dvh;
+    min-height: 100%;
     background: url('../../assets/wallpapers/wallpaper.jpg') center / cover no-repeat;
     background-size: cover;
     overflow-x: hidden;
@@ -9,8 +11,9 @@
 }
 
 .taskbar {
-    width: 100vw;
-    height: 2.7rem;
+    width: 100%;
+    min-height: 2.7rem;
+    height: calc(2.7rem + env(safe-area-inset-bottom));
     background: linear-gradient(to right,
             rgba(32, 32, 32, 0.75) 0%,
             var(--win-bg-acrylic) rgba(20, 20, 20, 0.85) 100%);
@@ -23,12 +26,14 @@
     left: 0px;
     right: 0px;
     border-top: 2px solid var(--win-border);
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    padding: 0px 20px;
+    padding: 0 max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
     color: white;
     font-size: 12px;
+    z-index: var(--z-taskbar);
+    gap: 12px;
 
 
 }
@@ -40,6 +45,8 @@
     align-items: center;
     font-size: 12px;
     font-weight: 100;
+    min-width: 0;
+    line-height: 1.2;
 
 }
 
@@ -50,20 +57,23 @@
 }
 
 .center-taskbar {
+    min-width: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 6px;
 }
 
 .center-taskbar button {
     width: auto;
-    height: 100%;
+    width: 2.25rem;
+    height: 2.25rem;
     font-size: 1.3rem;
     background: transparent;
     border: 0;
-    padding: 1px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     border-radius: 4px;
     /* transform: rotateY(20deg); */
     color: tomato;
@@ -115,18 +125,26 @@
 }
 
 .pinned-apps button {
-    margin: auto 7px;
+    margin: 0;
+}
+
+.pinned-apps {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .center-taskbar form {
-    width: 200px;
+    width: min(200px, 22vw);
+    min-width: 0;
+    flex: 0 1 200px;
     height: 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    margin: 0px 10px;
+    margin: 0;
     font-size: 12px;
     border: 3px solid rgba(255, 255, 255, 0.15);
     padding: 4px;
@@ -150,6 +168,8 @@
 
 .center-taskbar input {
     border-color: transparent;
+    min-width: 0;
+    width: 100%;
 }
 
 
@@ -160,6 +180,17 @@
     align-items: center;
     justify-content: space-between;
     font-weight: 200;
+    min-width: 0;
+    justify-content: flex-end;
+    line-height: 1.2;
+}
+
+.left-taskbar {
+    justify-self: start;
+}
+
+.right-taskbar {
+    justify-self: end;
 }
 
 .system-tray .lang {
@@ -247,4 +278,67 @@ display: none;
     border-color: transparent;
     color: white;
 
+}
+
+.left-taskbar,
+.right-taskbar {
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+@media (max-width: 700px) {
+    .taskbar {
+        padding-inline: max(8px, env(safe-area-inset-left));
+        gap: 4px;
+    }
+
+    .weather-data p,
+    .system-tray .lang {
+        display: none;
+    }
+
+    .center-taskbar form {
+        width: clamp(92px, 20vw, 150px);
+    }
+
+    .center-taskbar {
+        gap: 4px;
+    }
+
+    .system-tray .device-config-icons i {
+        margin-inline: 2px;
+    }
+
+    .system-tray .dateTime {
+        margin-inline: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .taskbar {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .left-taskbar,
+    .center-taskbar form,
+    .system-tray .dateTime p:last-child {
+        display: none;
+    }
+
+    .center-taskbar {
+        justify-content: center;
+    }
+
+    .center-taskbar button {
+        font-size: 1.15rem;
+    }
+
+    .center-taskbar {
+        gap: 2px;
+    }
+
+    .system-tray .device-config-icons i {
+        padding: 4px 2px;
+        margin-inline: 1px;
+    }
 }
