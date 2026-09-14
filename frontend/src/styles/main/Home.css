@@ -100,6 +100,10 @@
     color: #E4405F;
 
 }
+.fa-brave {
+    color: rgb(222, 50, 20);
+
+}
 
 .fa-whatsapp {
     color: #25D366;
@@ -221,8 +225,12 @@
     border-radius: 10px;
     display: flex;
     flex-direction: row;
-display: none;
+    border: #1054c0;
 
+}
+
+.start-menu-moved {
+    transform: translateY(100vh);
 }
 
 .start-menu-left {
@@ -232,6 +240,7 @@ display: none;
     backdrop-filter: blur(20px) saturate(125%);
     -webkit-backdrop-filter: blur(20px) saturate(125%);
     margin-right: 10px;
+    border-radius: 10px;
 }
 
 .start-menu-right {
@@ -240,12 +249,14 @@ display: none;
     background: #1054c0;
     backdrop-filter: blur(20px) saturate(125%);
     -webkit-backdrop-filter: blur(20px) saturate(125%);
+    border-radius: 10px;
 
 }
 
 .start-menu-left {
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 }
 
 .start-menu-left-top {
@@ -257,10 +268,12 @@ display: none;
     width: 100%;
     background-color: rgb(6, 105, 203);
     border-bottom: 1px solid black;
+    border-radius: 10px 10px 0px 0px;
 
 }
-.start-menu-left-top  form{
-    width: 80%;
+
+.start-menu-left-top form {
+    width: 85%;
     height: 57%;
     border: 1px solid black;
     border-radius: 30px;
@@ -269,9 +282,11 @@ display: none;
     justify-content: space-around;
     align-items: center;
     color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0px 10px;
 }
 
-.start-menu-left-top  form input{
+.start-menu-left-top form input {
     width: 90%;
     height: 100%;
     background: transparent;
@@ -280,11 +295,58 @@ display: none;
 
 }
 
+.start-menu-left-middle {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 2px 30px;
+}
+
+header {
+    width: auto;
+    height: 1.5rem;
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: capitalize;
+    margin: 10px 1rem;
+    font-weight: 200;
+    color: white;
+}
+
+header h2 {
+    font-weight: 500;
+    padding: 0px 20px;
+
+}
+
+.start-menu-left button {
+    background: transparent;
+    border-color: transparent;
+    font-size: 35px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.start-menu-left button:hover {
+    backdrop-filter: blur(20px) saturate(125%);
+    -webkit-backdrop-filter: blur(20px) saturate(125%);
+    background-color: rgba(150, 180, 232, 0.3);
+}
+
+.start-menu-left button p {
+    font-size: 12px;
+    color: white;
+    text-transform: capitalize;
+}
+
 .left-taskbar,
 .right-taskbar {
     flex: 0 1 auto;
     min-width: 0;
 }
+
 
 @media (max-width: 700px) {
     .taskbar {

@@ -23,9 +23,9 @@ export default function SystemTray() {
         ENG
       </div>
       <div className="device-config-icons">
-        <i class="fa-solid fa-wifi"></i>
-        <i class="fa-solid fa-volume"></i>
-        <i class="fa-solid fa-battery-half"></i>
+        <i className="fa-solid fa-wifi"></i>
+        <i className="fa-solid fa-volume"></i>
+        <i className="fa-solid fa-battery-half"></i>
       </div>
       <div className="dateTime">
         <p>{date.toLocaleTimeString([], timeOptions)}</p>

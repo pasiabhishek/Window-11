@@ -1,33 +1,44 @@
 import PinnedApps from "./PinnedApps"
 
-export default function StartMenu() {
+export default function StartMenu({ isMoved }) {
   return (
-    <section className="start-menu" aria-label="Start menu" >
+    <section className={`start-menu${isMoved ? " start-menu-moved" : ""}`} aria-label="Start menu" >
       <div className="start-menu-left">
         <div className="start-menu-left-top">
           <form action="">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
             <input type="search" placeholder="Search for apps, settings and documents" />
           </form>
         </div>
+        <header>
+            <h2>pinnned apps</h2>
+            <h2>see more</h2>
+          </header>
         <div className="start-menu-left-middle">
+          
           <button>
-            <i class="fa-solid fa-folder"></i>
+            <i className="fa-solid fa-folder"></i>
+            <p>Files</p>
           </button>
           <button>
-            <i class="fa-brands fa-brave"></i>
+            <i className="fa-brands fa-brave"></i>
+            <p>brave</p>
           </button>
           <button>
-            <i class="fa-brands fa-visual-studio"></i>
+            <i className="fa-brands fa-visual-studio"></i>
+            <p>Visual Studio</p>
           </button>
           <button>
-            <i class="fa-brands fa-instagram"></i>
+            <i className="fa-brands fa-instagram"></i>
+            <p>Instagram</p>
           </button>
           <button>
-            <i class="fa-brands fa-whatsapp"></i>
+            <i className="fa-brands fa-whatsapp"></i>
+            <p>Whatsapp</p>
           </button>
           <button>
-            <i class="fa-brands fa-chrome"></i>
+            <i className="fa-brands fa-chrome"></i>
+            <p>Chrome</p>
           </button>
         </div>
       </div>

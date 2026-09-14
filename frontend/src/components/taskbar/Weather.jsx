@@ -27,7 +27,7 @@ export default function Weather() {
     return (
         <div className="weather">
             <div className="weather-icon">
-                <i class="fa-solid fa-cloud"></i>
+                <i className="fa-solid fa-cloud"></i>
             </div>
             <div className="weather-data">
                 {weather.temperature_2m}°C
