@@ -100,6 +100,7 @@
     color: #E4405F;
 
 }
+
 .fa-brave {
     color: rgb(222, 50, 20);
 
@@ -225,12 +226,14 @@
     border-radius: 10px;
     display: flex;
     flex-direction: row;
+    transform: translateY(100vh);
+
     border: #1054c0;
 
 }
 
 .start-menu-moved {
-    transform: translateY(100vh);
+    transform: translateY(0);
 }
 
 .start-menu-left {
