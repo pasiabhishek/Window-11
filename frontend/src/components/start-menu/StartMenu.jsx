@@ -41,8 +41,11 @@ export default function StartMenu({ isMoved }) {
             <p>Chrome</p>
           </button>
         </div>
+        <div className=""></div>
       </div>
       <div className="start-menu-right">
+
+
 
       </div>
     </section>
