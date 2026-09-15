@@ -1,4 +1,3 @@
-import PinnedApps from "./PinnedApps"
 
 export default function StartMenu({ isMoved }) {
   return (
