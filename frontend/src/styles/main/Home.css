@@ -628,3 +628,72 @@ button p {
     width: 35px;
   }
 }
+
+
+.desktop-apps {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: grid;
+    /* Number of icons in one vertical column */
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, 90px);
+    grid-auto-columns: 90px;
+    gap: 10px;
+    width: calc(100vw - 40px);
+    height: calc(100vh - 100px);
+
+    align-content: start;
+    justify-content: start;
+
+    z-index: 10;
+}
+
+.home-dragable-icon {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 2px;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    cursor: default;
+
+    border-radius: 6px;
+
+    user-select: none;
+}
+
+.home-dragable-icon:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.home-dragable-icon i {
+    font-size: 32px;
+}
+
+.home-dragable-icon p {
+    margin: 0;
+
+    max-width: 75px;
+
+    font-size: 12px;
+    line-height: 15px;
+
+    text-align: center;
+
+    color: white;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

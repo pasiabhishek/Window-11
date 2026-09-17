@@ -1,14 +1,9 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
-export default function WindowFrame({ src }) {
+export default function WindowFrame({ src, title = "Window", onClose }) {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
-
-  const reloadPage = () => {
-    window.location.reload();
-  };
-
   if (isMinimized) {
     return (
       <motion.div
@@ -22,55 +17,33 @@ export default function WindowFrame({ src }) {
           className="minimized-window-button"
           onClick={() => setIsMinimized(false)}
         >
-          <i className="fa-solid fa-file-pdf"></i>
-          <span>My Resume</span>
+          <i className="fa-solid fa-window-maximize"></i>
+          <span>{title}</span>
         </button>
       </motion.div>
     );
   }
-
   return (
     <motion.section
-      className={`window-frame ${
-        isMaximized ? "window-maximized" : ""
-      }`}
+      className={`window-frame ${isMaximized ? "window-maximized" : ""}`}
       drag={!isMaximized}
       dragMomentum={false}
-      initial={{
-        opacity: 0,
-        scale: 0.95,
-        x: "-50%",
-        y: "-50%",
-      }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        x: "-50%",
-        y: "-50%",
-      }}
+      initial={{ opacity: 0, scale: 0.94, x: "-50%", y: "-50%" }}
+      animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }}
     >
-      {/* Browser Tab Bar */}
       <div className="window-tab-bar">
-
         <div className="window-tab active">
-          <i className="fa-solid fa-file-pdf"></i>
-
-          <span>My Resume</span>
-
+          <i className="fa-solid fa-window-maximize"></i>
+          <span>{title}</span>
           <button
             className="tab-close"
-            onClick={() => setIsMinimized(true)}
-            title="Minimize"
+            onClick={onClose}
+            title="Close"
           >
             ×
           </button>
         </div>
-
-        <button className="new-tab-button" title="New Tab">
-          +
-        </button>
-
-        {/* Window Controls */}
+        <button className="new-tab-button">+</button>
         <div className="window-controls">
           <button
             onClick={() => setIsMinimized(true)}
@@ -78,63 +51,45 @@ export default function WindowFrame({ src }) {
           >
             −
           </button>
-
           <button
             onClick={() => setIsMaximized((value) => !value)}
-            title={isMaximized ? "Restore" : "Maximize"}
+            title="Maximize"
           >
             {isMaximized ? "❐" : "□"}
           </button>
-
           <button
             className="close-button"
-            onClick={() => setIsMinimized(true)}
+            onClick={onClose}
             title="Close"
           >
             ×
           </button>
         </div>
       </div>
-
-      {/* Browser Toolbar */}
       <div className="window-toolbar">
-
         <div className="navigation-buttons">
-          <button title="Back">
+          <button>
             <i className="fa-solid fa-arrow-left"></i>
           </button>
-
-          <button title="Forward">
+          <button>
             <i className="fa-solid fa-arrow-right"></i>
           </button>
-
-          <button
-            title="Reload"
-            onClick={reloadPage}
-          >
+          <button onClick={() => window.location.reload()}>
             <i className="fa-solid fa-rotate-right"></i>
           </button>
         </div>
-
-        {/* Address Bar */}
         <div className="address-bar">
           <i className="fa-solid fa-lock"></i>
-
-          <span>
-            {src}
-          </span>
+          <span>{src}</span>
         </div>
-
-        <button className="toolbar-menu" title="Menu">
+        <button className="toolbar-menu">
           <i className="fa-solid fa-ellipsis-vertical"></i>
         </button>
       </div>
-
-      {/* Window Content */}
       <div className="window-content">
         <iframe
           src={src}
-          title="My Resume"
+          title={title}
           loading="lazy"
           sandbox="allow-scripts allow-same-origin"
         />
