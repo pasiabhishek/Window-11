@@ -1,14 +1,12 @@
-export default function WindowFrame({ children }) {
+export default function WindowFrame({ src }) {
   return (
-    <section className="window-frame">{children}
+    <section className="window-frame">
       <iframe
-        src={children}
-        title="External Content Example"
-        width="100%"
-        height="500px"
-        style={{ border: 'none' }}
-        loading="lazy" // Optimizes page load performance
-        sandbox="allow-scripts allow-same-origin" // Security best practice
-      />    </section>
-  )
+        src={src}
+        title="My Resume"
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin"
+      />
+    </section>
+  );
 }

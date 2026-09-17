@@ -402,3 +402,93 @@ header h2 {
         margin-inline: 1px;
     }
 }
+
+button {
+    background: transparent;
+    border-color: transparent;
+    font-size: 35px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+button:hover {
+    backdrop-filter: blur(20px) saturate(125%);
+    -webkit-backdrop-filter: blur(20px) saturate(125%);
+    background-color: rgba(150, 180, 232, 0.3);
+}
+button p {
+    font-size: 12px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.window-frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(900px, 90vw);
+  height: min(650px, 85vh);
+
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+
+  overflow: hidden;
+  overflow-y: scroll;
+
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 10px 20px rgba(0, 0, 0, 0.12);
+
+  z-index: 1000;
+
+  animation: windowOpen 0.2s ease-out;
+}
+
+.window-frame iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  background: #ffffff;
+}
+
+
+/* Window opening animation */
+@keyframes windowOpen {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+/* Tablet */
+@media (max-width: 768px) {
+  .window-frame {
+    width: 94vw;
+    height: 85vh;
+
+    border-radius: 10px;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 480px) {
+  .window-frame {
+    width: 96vw;
+    height: 88vh;
+
+    border-radius: 8px;
+  }
+}
